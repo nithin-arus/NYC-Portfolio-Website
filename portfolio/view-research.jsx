@@ -1,0 +1,157 @@
+// Portfolio v2 — Research & Patents view
+
+function ViewResearch() {
+  const projects = [
+    { id: "PRJ-01", title: "[Project Title One]",   role: "[Lead / Co-Lead]",  year: "20XX", status: "Live"      },
+    { id: "PRJ-02", title: "[Project Title Two]",   role: "[Contributor]",     year: "20XX", status: "Live"      },
+    { id: "PRJ-03", title: "[Project Title Three]", role: "[Lead]",            year: "20XX", status: "Active"    },
+    { id: "PRJ-04", title: "[Project Title Four]",  role: "[Co-Lead]",         year: "20XX", status: "Archived"  },
+  ];
+  const papers = [
+    { id: "P-01", title: "[Paper Title One]",   venue: "[Conference / Journal]", year: "20XX", status: "Published", cite: 42 },
+    { id: "P-02", title: "[Paper Title Two]",   venue: "[Venue]",                 year: "20XX", status: "Published", cite: 18 },
+    { id: "P-03", title: "[Paper Title Three]", venue: "[Venue]",                 year: "20XX", status: "Preprint",  cite: 3  },
+    { id: "P-04", title: "[Paper Title Four]",  venue: "[Workshop]",              year: "20XX", status: "Published", cite: 7  },
+  ];
+  const patents = [
+    { id: "US-XXXXXXX", title: "[Patent Title — System &amp; Method For …]", year: "20XX", status: "Granted" },
+    { id: "US-XXXXXXX", title: "[Patent Title — Apparatus For …]",            year: "20XX", status: "Granted" },
+    { id: "US-XXXXXXX", title: "[Patent Title — Process For …]",              year: "20XX", status: "Pending" },
+  ];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+      <PfBoardHeader stationCode="N03" name="Research &amp; Patents" />
+
+      <div className="pf-scroll" style={{ flex: 1 }}>
+        <div style={{ padding: "32px 40px 24px", borderBottom: "1px solid var(--hairline)" }}>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
+            <div className="pf-tighter pf-display-xl" style={{ fontSize: 84, fontWeight: 500, lineHeight: 1.02 }}>
+              Research<span style={{ color: "var(--muted-2)" }}> &amp; </span>Patents
+            </div>
+            <div className="pf-meta" style={{ fontSize: 10, color: "var(--muted)", textAlign: "right", paddingBottom: 12 }}>
+              {projects.length} Projects · {papers.length} Research · {patents.length} Patents
+            </div>
+          </div>
+        </div>
+
+        {/* Projects section */}
+        <div style={{ borderBottom: "1px solid var(--hairline)" }}>
+          <div style={{
+            display: "flex", alignItems: "center", gap: 12,
+            padding: "16px 40px", borderBottom: "1px solid var(--hairline)",
+          }}>
+            <PfBullet label="P" line="O" size={24} />
+            <div className="pf-tight" style={{ fontSize: 20, fontWeight: 700 }}>Projects</div>
+            <span className="pf-meta" style={{ fontSize: 10, color: "var(--muted)", marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 6 }}>
+              <PfDot color="#ff6319" className="pf-blink-pulse" /> Shipped &amp; Active
+            </span>
+          </div>
+          {projects.map((p, i, a) => {
+            const stColor = p.status === "Live" ? "#00933c" : p.status === "Active" ? "#fccc0a" : "var(--muted)";
+            const stDot   = p.status === "Live" ? "#00933c" : p.status === "Active" ? "#fccc0a" : "#6b6d70";
+            return (
+              <div key={i} className="pf-row-grid" style={{
+                display: "grid",
+                gridTemplateColumns: "110px 1fr auto auto auto",
+                gap: 20,
+                alignItems: "center",
+                padding: "16px 40px",
+                borderBottom: i === a.length - 1 ? 0 : "1px solid var(--hairline)",
+              }}>
+                <span className="pf-meta pf-row-id" style={{ fontSize: 11, color: "var(--muted)" }}>{p.id}</span>
+                <span className="pf-tight pf-row-title" style={{ fontSize: 19, fontWeight: 500 }}>{p.title}</span>
+                <span className="pf-row-meta" style={{ fontSize: 13, color: "var(--muted)" }}>{p.role}</span>
+                <span className="pf-meta pf-row-meta" style={{ fontSize: 11, color: "var(--muted)" }}>{p.year}</span>
+                <span className="pf-meta pf-row-status" style={{ fontSize: 10, color: stColor, display: "inline-flex", alignItems: "center", gap: 6 }}>
+                  <PfDot color={stDot} className={p.status !== "Archived" ? "pf-blink-slow" : ""} />
+                  {p.status}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Papers section */}
+        <div style={{ borderBottom: "1px solid var(--hairline)" }}>
+          <div style={{
+            display: "flex", alignItems: "center", gap: 12,
+            padding: "16px 40px", borderBottom: "1px solid var(--hairline)",
+          }}>
+            <PfBullet label="R" line="G" size={24} />
+            <div className="pf-tight" style={{ fontSize: 20, fontWeight: 700 }}>Research</div>
+            <span className="pf-meta" style={{ fontSize: 10, color: "var(--muted)", marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 6 }}>
+              <PfDot color="#00933c" className="pf-blink-pulse" /> Peer Reviewed
+            </span>
+          </div>
+          <table className="pf-table" style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                {["ID", "Title", "Venue", "Year", "Cites", "Status"].map((h, i) => (
+                  <th key={h} className="pf-meta" style={{
+                    textAlign: i >= 3 ? "right" : "left",
+                    fontSize: 10, color: "var(--muted)",
+                    fontWeight: 500,
+                    padding: i === 0 ? "12px 12px 12px 40px" : i === 5 ? "12px 40px 12px 12px" : "12px 12px",
+                    borderBottom: "1px solid var(--hairline-strong)",
+                  }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {papers.map((p, i) => (
+                <tr key={p.id} style={{ borderBottom: "1px solid var(--hairline)" }}>
+                  <td className="pf-meta pf-cell-meta" style={{ padding: "14px 12px 14px 40px", fontSize: 11, color: "var(--muted)" }}>{p.id}</td>
+                  <td className="pf-tight pf-cell-title" style={{ padding: "14px 12px", fontSize: 17, fontWeight: 500 }}>{p.title}</td>
+                  <td className="pf-cell-meta" style={{ padding: "14px 12px", fontSize: 13, color: "var(--muted)" }}>{p.venue}</td>
+                  <td className="pf-meta pf-cell-meta" style={{ padding: "14px 12px", fontSize: 11, color: "var(--muted)", textAlign: "right" }}>{p.year}</td>
+                  <td className="pf-tight pf-cell-meta" style={{ padding: "14px 12px", fontSize: 16, fontWeight: 600, textAlign: "right" }}>{p.cite} cites</td>
+                  <td className="pf-meta pf-cell-status" style={{ padding: "14px 40px 14px 12px", fontSize: 10, textAlign: "right" }}>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: p.status === "Preprint" ? "#fccc0a" : "#00933c" }}>
+                      <PfDot color={p.status === "Preprint" ? "#fccc0a" : "#00933c"} className="pf-blink-slow" />
+                      {p.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Patents section */}
+        <div>
+          <div style={{
+            display: "flex", alignItems: "center", gap: 12,
+            padding: "16px 40px", borderBottom: "1px solid var(--hairline)",
+          }}>
+            <PfBullet label="P" line="B" size={24} />
+            <div className="pf-tight" style={{ fontSize: 20, fontWeight: 700 }}>Patents</div>
+            <span className="pf-meta" style={{ fontSize: 10, color: "var(--muted)", marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 6 }}>
+              <PfDot color="#0039a6" className="pf-blink-pulse" /> Filed / Granted
+            </span>
+          </div>
+          {patents.map((p, i, a) => (
+            <div key={i} className="pf-row-grid" style={{
+              display: "grid",
+              gridTemplateColumns: "auto 1fr auto auto",
+              gap: 20,
+              alignItems: "center",
+              padding: "18px 40px",
+              borderBottom: i === a.length - 1 ? 0 : "1px solid var(--hairline)",
+            }}>
+              <span className="pf-meta pf-row-id" style={{ fontSize: 11, color: "var(--muted)", width: 110 }}>{p.id}</span>
+              <span className="pf-tight pf-row-title" style={{ fontSize: 18, fontWeight: 500 }} dangerouslySetInnerHTML={{ __html: p.title }} />
+              <span className="pf-meta pf-row-meta" style={{ fontSize: 11, color: "var(--muted)" }}>{p.year}</span>
+              <span className="pf-meta pf-row-status" style={{ fontSize: 10, color: p.status === "Pending" ? "#fccc0a" : "#00933c", display: "inline-flex", alignItems: "center", gap: 6 }}>
+                <PfDot color={p.status === "Pending" ? "#fccc0a" : "#00933c"} className="pf-blink-slow" />
+                {p.status}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { ViewResearch });

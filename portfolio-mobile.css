@@ -1,0 +1,175 @@
+/* portfolio-mobile.css
+   Mobile responsiveness — does not alter desktop layout.
+   Active only when viewport <= 820px. */
+
+@media (max-width: 820px) {
+  html, body, #root { overflow: hidden; }
+
+  /* App shell flips to column */
+  .pf-app { flex-direction: column !important; }
+
+  /* Sidebar becomes a slide-down drawer */
+  .pf-sidebar {
+    position: fixed !important;
+    top: 56px;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    flex: none !important;
+    height: calc(100vh - 56px) !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--hairline-strong);
+    transform: translateY(-110%);
+    transition: transform 220ms ease;
+    z-index: 40;
+  }
+  .pf-sidebar.pf-open { transform: translateY(0); }
+
+  /* Mobile top bar */
+  .pf-mobile-bar {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    height: 56px;
+    background: #000;
+    border-bottom: 1px solid var(--hairline-strong);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  /* Main content scrolls under the top bar */
+  main.pf-main {
+    width: 100% !important;
+    height: calc(100vh - 56px) !important;
+    flex: none !important;
+  }
+
+  /* Board header — wrap, stack, shrink */
+  .pf-board-header {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 12px 16px !important;
+  }
+  .pf-board-header > * { justify-self: start !important; }
+  .pf-board-header .pf-status-lights {
+    flex-wrap: wrap;
+    gap: 10px 14px !important;
+  }
+  .pf-board-header-right { justify-self: start !important; }
+
+  /* Status lights — shrink labels */
+  .pf-status-lights .pf-meta { font-size: 9px !important; }
+
+  /* All inner view padding tightens */
+  .pf-scroll { padding-bottom: 80px; }
+
+  /* Big titles: clamp */
+  .pf-display-xl {
+    font-size: clamp(48px, 13vw, 84px) !important;
+    line-height: 1.05 !important;
+  }
+  .pf-display-2xl {
+    font-size: clamp(56px, 16vw, 116px) !important;
+    line-height: 1.02 !important;
+  }
+  .pf-section-title { font-size: 18px !important; }
+  .pf-section-sub { font-size: 13px !important; }
+
+  /* Pad the body sections lighter */
+  .pf-view-pad { padding: 20px 16px !important; }
+  .pf-view-pad-x { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Generic: collapse 2-col grids to 1 */
+  .pf-2col { grid-template-columns: 1fr !important; }
+  .pf-3col { grid-template-columns: 1fr !important; }
+  .pf-2col > *,
+  .pf-3col > * {
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--hairline) !important;
+  }
+  .pf-2col > *:last-child,
+  .pf-3col > *:last-child { border-bottom: 0 !important; }
+
+  /* Tables — convert to stacked cards */
+  table.pf-table { display: block; }
+  table.pf-table thead { display: none; }
+  table.pf-table tbody { display: block; }
+  table.pf-table tr {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--hairline) !important;
+  }
+  table.pf-table td {
+    padding: 2px 0 !important;
+    text-align: left !important;
+    border: 0 !important;
+  }
+  table.pf-table td.pf-cell-bullet {
+    grid-row: 1 / -1;
+    align-self: start;
+    padding-top: 2px !important;
+  }
+  table.pf-table td.pf-cell-title {
+    font-size: 17px !important;
+    grid-column: 2;
+  }
+  table.pf-table td.pf-cell-meta {
+    grid-column: 2;
+    font-size: 11px !important;
+    color: var(--muted) !important;
+  }
+  table.pf-table td.pf-cell-status { grid-column: 2; }
+
+  /* Footer — stack & shrink */
+  .pf-footer {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 10px 16px !important;
+    text-align: left;
+  }
+  .pf-footer > * { justify-self: start !important; font-size: 9px !important; }
+
+  /* Experience route — narrower indent */
+  .pf-experience-route { padding-left: 44px !important; }
+  .pf-experience-stop {
+    grid-template-columns: 1fr !important;
+  }
+  .pf-experience-meta {
+    text-align: left !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    margin-top: 8px;
+  }
+
+  /* Generic 5-col row-grid (Projects / Patents) — wraps on mobile */
+  .pf-row-grid {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    padding: 14px 16px !important;
+  }
+  .pf-row-grid .pf-row-id { font-size: 10px !important; }
+  .pf-row-grid .pf-row-title { font-size: 17px !important; }
+  .pf-row-grid .pf-row-meta,
+  .pf-row-grid .pf-row-status { font-size: 11px !important; }
+
+  /* Home departure rows — tighten */
+  .pf-departure-row {
+    grid-template-columns: 24px 1fr auto !important;
+    gap: 10px !important;
+  }
+  .pf-departure-row .pf-departure-time { display: none; }
+
+  /* Mobile-only utility classes */
+  .pf-hide-mobile { display: none !important; }
+  .pf-mobile-only-flex { display: flex !important; }
+}
+
+/* Desktop hides the mobile-only chrome */
+@media (min-width: 821px) {
+  .pf-mobile-bar { display: none !important; }
+  .pf-mobile-only-flex { display: none !important; }
+}

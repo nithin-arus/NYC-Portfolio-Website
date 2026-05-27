@@ -1,0 +1,100 @@
+/* Portfolio — Vignelli-inspired station board v2
+   All Helvetica. Mixed-case headings. */
+
+:root {
+  --ink: #ffffff;
+  --bg: #000000;
+  --surface: #0b0b0b;
+  --hairline: #2a2a2a;
+  --hairline-strong: #3d3d3d;
+  --muted: #a7a9ac;
+  --muted-2: #6b6d70;
+
+  --line-r: #ee352e;
+  --line-b: #0039a6;
+  --line-g: #00933c;
+  --line-o: #ff6319;
+  --line-y: #fccc0a;
+  --line-p: #b933ad;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  font-variant-numeric: tabular-nums;
+  /* NYC subway signage is set in Helvetica Medium with generous leading.
+     Default to a loose line-height and slightly open tracking. */
+  line-height: 1.35;
+  letter-spacing: 0.005em;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Tracking — kept much closer to neutral, like Unimark / Vignelli signage.
+   Real NYC platform signs are set nearly flush; never tight-tracked. */
+.pf-tight    { letter-spacing: -0.005em; line-height: 1.15; }
+.pf-tighter  { letter-spacing: -0.015em; line-height: 1.05; }
+.pf-meta     { letter-spacing: 0.08em;  text-transform: uppercase; font-weight: 500; line-height: 1.4; }
+.pf-display  { letter-spacing: -0.01em; line-height: 1.02; }
+
+.pf-bullet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  flex: 0 0 auto;
+}
+
+.pf-stripes {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 10px,
+    rgba(255,255,255,0.04) 10px 11px
+  );
+}
+
+/* Blink animations — multiple offsets so the board feels alive */
+@keyframes pfBlinkFast { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.18; } }
+@keyframes pfBlinkSlow { 0%, 70% { opacity: 1; } 71%, 100% { opacity: 0.2; } }
+@keyframes pfBlinkPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@keyframes pfTick { 0%, 95% { opacity: 1; } 96%, 100% { opacity: 0; } }
+
+.pf-blink       { animation: pfBlinkFast 1.4s steps(2, end) infinite; }
+.pf-blink-slow  { animation: pfBlinkSlow 2.2s steps(2, end) infinite; }
+.pf-blink-pulse { animation: pfBlinkPulse 1.6s ease-in-out infinite; }
+.pf-tick        { animation: pfTick 1s steps(2, end) infinite; }
+
+.pf-blink-1 { animation-delay: 0s; }
+.pf-blink-2 { animation-delay: 0.4s; }
+.pf-blink-3 { animation-delay: 0.7s; }
+.pf-blink-4 { animation-delay: 1.0s; }
+.pf-blink-5 { animation-delay: 1.3s; }
+
+/* Hide native scrollbars in interior content panes (still scrollable) */
+.pf-scroll { overflow-y: auto; scrollbar-width: thin; scrollbar-color: #2a2a2a transparent; }
+.pf-scroll::-webkit-scrollbar { width: 6px; }
+.pf-scroll::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 0; }
+
+/* Buttons reset */
+button { font-family: inherit; }
+
+/* Tap targets */
+.pf-tab:hover { background: #080808; }
+.pf-tab:hover .pf-tab-label { color: #fff; }
+
+/* Travel blog button — nudge arrow on hover */
+.pf-travel:hover .pf-travel-arrow { transform: translateX(6px); }

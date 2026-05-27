@@ -1,0 +1,81 @@
+/* Shared Vignelli-inspired tokens & helpers */
+:root {
+  --ink: #ffffff;
+  --bg: #000000;
+  --surface: #0b0b0b;
+  --hairline: #2a2a2a;
+  --hairline-strong: #3d3d3d;
+  --muted: #a7a9ac;
+  --muted-2: #6b6d70;
+
+  /* Line markers (transit-style, generic) */
+  --line-r: #ee352e;
+  --line-b: #0039a6;
+  --line-g: #00933c;
+  --line-o: #ff6319;
+  --line-y: #fccc0a;
+  --line-p: #b933ad;
+  --line-k: #1a1a1a;
+}
+
+.vg-font {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.vg-mono {
+  font-family: "IBM Plex Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.vg-tight    { letter-spacing: -0.045em; }
+.vg-tighter  { letter-spacing: -0.06em; }
+.vg-uplabel  { letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Round line bullet */
+.vg-bullet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  flex: 0 0 auto;
+}
+
+/* Striped placeholder for imagery slots */
+.vg-stripes {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 8px,
+    rgba(255,255,255,0.04) 8px 9px
+  );
+}
+
+.vg-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.vg-blink {
+  animation: vgBlink 1.4s steps(2, end) infinite;
+}
+@keyframes vgBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.15; }
+}
+
+/* Reset any inherited canvas styles inside artboards */
+.vg-root {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+  position: relative;
+}
+.vg-root, .vg-root * { box-sizing: border-box; }

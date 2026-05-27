@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Nithin — Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <link rel="stylesheet" href="portfolio-mobile.css" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="portfolio/primitives.jsx"></script>
+  <script type="text/babel" src="portfolio/sidebar.jsx"></script>
+  <script type="text/babel" src="portfolio/view-home.jsx"></script>
+  <script type="text/babel" src="portfolio/view-experience.jsx"></script>
+  <script type="text/babel" src="portfolio/view-research.jsx"></script>
+  <script type="text/babel" src="portfolio/view-awards.jsx"></script>
+  <script type="text/babel" src="portfolio/view-interests.jsx"></script>
+  <script type="text/babel" src="portfolio/view-media.jsx"></script>
+
+  <script type="text/babel">
+    const TABS = [
+      { id: "home",       num: "01", label: "Home",                line: "B", group: "main" },
+      { id: "experience", num: "02", label: "Experience",          line: "O", group: "main" },
+      { id: "research",   num: "03", label: "Research & Patents",  line: "G", group: "main" },
+      { id: "awards",     num: "04", label: "Awards",              line: "Y", group: "connect" },
+      { id: "interests",  num: "05", label: "Interests & Skills",  line: "P", group: "connect" },
+      { id: "media",      num: "06", label: "Favorite Media",      line: "R", group: "connect" },
+    ];
+
+    function App() {
+      const [tab, setTab] = React.useState("home");
+      const [menuOpen, setMenuOpen] = React.useState(false);
+      const currentTab = TABS.find((t) => t.id === tab);
+
+      return (
+        <div className="pf-app" style={{ display: "flex", width: "100%", height: "100%", background: "#000" }}>
+          {/* Mobile top bar — hidden on desktop */}
+          <div className="pf-mobile-bar" style={{ display: "none" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <PfBullet label="N" line="Y" size={28} />
+              <div className="pf-tight" style={{ fontSize: 16, fontWeight: 700, lineHeight: 1 }}>
+                Nithin Aruswamy
+              </div>
+            </div>
+            <button
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMenuOpen((o) => !o)}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                padding: "6px 10px", background: "transparent",
+                border: "1px solid var(--hairline-strong)", color: "#fff",
+                cursor: "pointer",
+              }}
+            >
+              {currentTab && <PfBullet label={currentTab.num} line={currentTab.line} size={20} />}
+              <span className="pf-meta" style={{ fontSize: 10 }}>{menuOpen ? "Close" : "Menu"}</span>
+            </button>
+          </div>
+
+          <PfSidebar tab={tab} setTab={(id) => { setTab(id); setMenuOpen(false); }} tabs={TABS} open={menuOpen} />
+
+          <main className="pf-main" style={{ flex: 1, overflow: "hidden", position: "relative", display: "flex", flexDirection: "column" }}>
+            <div style={{ flex: 1, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+              {tab === "home"       && <ViewHome />}
+              {tab === "experience" && <ViewExperience />}
+              {tab === "research"   && <ViewResearch />}
+              {tab === "awards"     && <ViewAwards />}
+              {tab === "interests"  && <ViewInterests />}
+              {tab === "media"      && <ViewMedia />}
+            </div>
+            <PfFooter />
+          </main>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

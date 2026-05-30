@@ -2,10 +2,12 @@
 
 function ViewResearch() {
   const projects = [
-    { id: "PRJ-01", title: "[Project Title One]",   role: "[Lead / Co-Lead]",  year: "20XX", status: "Live"      },
-    { id: "PRJ-02", title: "[Project Title Two]",   role: "[Contributor]",     year: "20XX", status: "Live"      },
-    { id: "PRJ-03", title: "[Project Title Three]", role: "[Lead]",            year: "20XX", status: "Active"    },
-    { id: "PRJ-04", title: "[Project Title Four]",  role: "[Co-Lead]",         year: "20XX", status: "Archived"  },
+    { id: "PRJ-01", title: "Therapeuo",    sub: "Smart Insole",                role: "Co-founder",   year: "2026", status: "Live",     href: "https://therapeuo.xyz/" },
+    { id: "PRJ-02", title: "OneDay",       sub: "Productivity App",            role: "Founder",      year: "2025", status: "Active",   href: "https://apps.apple.com/us/app/oneday-by-nithin-aruswamy/id6755661127" },
+    { id: "PRJ-03", title: "Jet-Set Teen", sub: "Travel Guide",                role: "Author",       year: "2024", status: "Active",   href: "https://www.amazon.com/Jet-Set-Teen-International-Travels-Budgeting/dp/B0DF6VKC18" },
+    { id: "PRJ-04", title: "GuestFlow",    sub: "Hospitality Orchestration",   role: "Co-Lead",      year: "2026", status: "Archived", href: "https://github.com/TarunYadgirkar/guestflow" },
+    { id: "PRJ-05", title: "HealthFlow",   sub: "911 Dispatch Workflow",       role: "Contributor",  year: "2026", status: "Archived", href: "https://github.com/PranavAchar01/HealthFlow-ApifyxScalekit" },
+    { id: "PRJ-06", title: "Terran",       sub: "Autonomous Farming",          role: "Co-Founder",   year: "2025", status: "Archived", href: "https://youtu.be/HTlI9NxZe-g?si=V1cE4Rpiqy2UMVoT" },
   ];
   const papers = [
     { id: "P-01", title: "[Paper Title One]",   venue: "[Conference / Journal]", year: "20XX", status: "Published", cite: 42 },
@@ -18,6 +20,11 @@ function ViewResearch() {
     { id: "US-XXXXXXX", title: "[Patent Title — Apparatus For …]",            year: "20XX", status: "Granted" },
     { id: "US-XXXXXXX", title: "[Patent Title — Process For …]",              year: "20XX", status: "Pending" },
   ];
+
+  const byYearDesc = (a, b) => Number(b.year) - Number(a.year);
+  projects.sort(byYearDesc);
+  papers.sort(byYearDesc);
+  patents.sort(byYearDesc);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
@@ -60,7 +67,18 @@ function ViewResearch() {
                 borderBottom: i === a.length - 1 ? 0 : "1px solid var(--hairline)",
               }}>
                 <span className="pf-meta pf-row-id" style={{ fontSize: 11, color: "var(--muted)" }}>{p.id}</span>
-                <span className="pf-tight pf-row-title" style={{ fontSize: 19, fontWeight: 500 }}>{p.title}</span>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="pf-tight pf-row-title"
+                  style={{ fontSize: 19, fontWeight: 500, color: "#fff", textDecoration: "none" }}
+                >
+                  {p.title}
+                  {p.sub && (
+                    <span style={{ color: "var(--muted)" }}> - {p.sub}</span>
+                  )}
+                </a>
                 <span className="pf-row-meta" style={{ fontSize: 13, color: "var(--muted)" }}>{p.role}</span>
                 <span className="pf-meta pf-row-meta" style={{ fontSize: 11, color: "var(--muted)" }}>{p.year}</span>
                 <span className="pf-meta pf-row-status" style={{ fontSize: 10, color: stColor, display: "inline-flex", alignItems: "center", gap: 6 }}>

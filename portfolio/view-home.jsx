@@ -47,7 +47,7 @@ function ViewHome() {
             <div style={{ marginTop: "auto", paddingTop: 12 }}>
               <PfStatPair k="Now Operating" v="Student" />
               <PfStatPair k="Based" v="SF, California" />
-              <PfStatPair k="In Service Since" v="[Year]" />
+              <PfStatPair k="In Service Since" v="2026" />
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ function ViewHome() {
           </div>
           {[
             {
-              line: "G", time: "Now", st: "Live", stc: "#00933c",
+              icon: "B", line: "G", time: "Now", st: "Live", stc: "#00933c",
               dest: (
                 <>
                   Building World's 1st Mass-Market{" "}
@@ -81,7 +81,7 @@ function ViewHome() {
               ),
             },
             {
-              line: "G", time: "Now", st: "Live", stc: "#00933c",
+              icon: "D", line: "G", time: "Now", st: "Live", stc: "#00933c",
               dest: (
                 <>
                   Designed a Minimalist{" "}
@@ -96,8 +96,16 @@ function ViewHome() {
                 </>
               ),
             },
-            { line: "Y", time: "Q3",   dest: "IEOR Research",            st: "Planned",  stc: "#fccc0a" },
-            { line: "B", time: "—",    dest: "[Open to opportunities]",  st: "Standby",  stc: "#a7a9ac" },
+            {
+              icon: "O", line: "Y", time: "Q2", st: "Planned", stc: "#fccc0a",
+              dest: (
+                <>
+                  Operations Research in{" "}
+                  <span style={{ color: "#9aa0a6" }}>Marketing Analytics</span>
+                </>
+              ),
+            },
+            { icon: "O", line: "B", time: "—",    dest: "[Open to opportunities]",  st: "Standby",  stc: "#a7a9ac" },
           ].map((d, i, a) => (
             <div key={i} className="pf-departure-row"
               style={{
@@ -110,7 +118,7 @@ function ViewHome() {
                 borderBottom: i === a.length - 1 ? "1px solid var(--hairline)" : 0,
               }}
             >
-              <PfBullet label={d.line} line={d.line} size={22} />
+              <PfBullet label={d.icon} line={d.line} size={22} />
               <span className="pf-tight pf-departure-time" style={{ fontSize: 22, fontWeight: 600 }}>{d.time}</span>
               <span className="pf-tight" style={{ fontSize: 22, fontWeight: 500 }}>{d.dest}</span>
               <span className="pf-meta" style={{ fontSize: 11, color: d.stc, display: "inline-flex", alignItems: "center", gap: 6 }}>

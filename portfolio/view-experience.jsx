@@ -54,8 +54,8 @@ function ViewExperience() {
                   width: 36,
                   height: 36,
                   borderRadius: 999,
-                  background: s.terminus ? "#1a1a1a" : "#fff",
-                  border: s.terminus ? "3px solid #ff6319" : "5px solid #ff6319",
+                  background: "#fff",
+                  border: "5px solid #ff6319",
                   boxSizing: "border-box",
                   display: "flex",
                   alignItems: "center",
@@ -85,9 +85,6 @@ function ViewExperience() {
                         <PfDot color="#ff6319" className="pf-blink" />
                         Now Serving
                       </span>
-                    )}
-                    {s.terminus && (
-                      <span className="pf-meta" style={{ fontSize: 9, color: "var(--muted)" }}>Terminus</span>
                     )}
                   </div>
                   <div className="pf-tight" style={{ fontSize: 26, fontWeight: 700, lineHeight: 1.1 }}>

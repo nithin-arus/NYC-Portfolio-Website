@@ -75,7 +75,22 @@ function PfSidebar({ tab, setTab, tabs, open }) {
             Under Construction
           </div>
         </div>
-        <span className="pf-travel-arrow" style={{ fontSize: 20, fontWeight: 700, transition: "transform 180ms ease" }}>→</span>
+        <span className="pf-travel-arrow" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", transition: "transform 180ms ease" }}>
+          <svg
+            width="32"
+            height="22"
+            viewBox="0 0 32 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3.5"
+            strokeLinecap="butt"
+            strokeLinejoin="miter"
+            style={{ display: "block" }}
+          >
+            <line x1="2" y1="12" x2="26" y2="12" />
+            <polyline points="20,4 28,12 20,20" />
+          </svg>
+        </span>
       </button>
 
       <div

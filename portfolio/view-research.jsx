@@ -10,15 +10,13 @@ function ViewResearch() {
     { id: "PRJ-06", title: "Terran",       sub: "Autonomous Farming",          role: "Co-Founder",   year: "2025", status: "Archived", href: "https://youtu.be/HTlI9NxZe-g?si=V1cE4Rpiqy2UMVoT" },
   ];
   const papers = [
-    { id: "P-01", title: "[Paper Title One]",   venue: "[Conference / Journal]", year: "20XX", status: "Published", cite: 42 },
-    { id: "P-02", title: "[Paper Title Two]",   venue: "[Venue]",                 year: "20XX", status: "Published", cite: 18 },
-    { id: "P-03", title: "[Paper Title Three]", venue: "[Venue]",                 year: "20XX", status: "Preprint",  cite: 3  },
-    { id: "P-04", title: "[Paper Title Four]",  venue: "[Workshop]",              year: "20XX", status: "Published", cite: 7  },
+    { id: "P-01", title: "Math Modeling & Geometry for Fabric Analysis",       venue: "TMLR",                       year: "2025", status: "Published", cite: 2,   href: "https://openreview.net/pdf/7a75b4e1e1528208c787ca2058ed083741cc29b7.pdf" },
+    { id: "P-02", title: "Textile Microtexture Dataset",                       venue: "Harvard Dataverse",          year: "2025", status: "Published", cite: 320, href: "https://doi.org/10.7910/DVN/KUDCQX" },
+    { id: "P-03", title: "Efficient Micro-Agriculture System",                 venue: "Youth Innovators Journal",   year: "2024", status: "Published", cite: 0,   href: "https://static1.squarespace.com/static/68f03354b22f613e25f92137/t/6902d275baad1a1ef23948ee/1761792629466/YIJ+-+SHIELD.pdf" },
+    { id: "P-04", title: "Computer Vision Pipeline for MSE Microtextures",     venue: "ArXiv",                      year: "2024", status: "Preprint",  cite: 0,   href: "https://github.com/nithin-arus/microtexture" },
   ];
   const patents = [
-    { id: "US-XXXXXXX", title: "[Patent Title — System &amp; Method For …]", year: "20XX", status: "Granted" },
-    { id: "US-XXXXXXX", title: "[Patent Title — Apparatus For …]",            year: "20XX", status: "Granted" },
-    { id: "US-XXXXXXX", title: "[Patent Title — Process For …]",              year: "20XX", status: "Pending" },
+    { id: "63/742,004", title: "Sustainable Harvesting and Integrated Efficient Land Defense", year: "2023", status: "Granted" },
   ];
 
   const byYearDesc = (a, b) => Number(b.year) - Number(a.year);
@@ -120,7 +118,11 @@ function ViewResearch() {
               {papers.map((p, i) => (
                 <tr key={p.id} style={{ borderBottom: "1px solid var(--hairline)" }}>
                   <td className="pf-meta pf-cell-meta" style={{ padding: "14px 12px 14px 40px", fontSize: 11, color: "var(--muted)" }}>{p.id}</td>
-                  <td className="pf-tight pf-cell-title" style={{ padding: "14px 12px", fontSize: 17, fontWeight: 500 }}>{p.title}</td>
+                  <td className="pf-tight pf-cell-title" style={{ padding: "14px 12px", fontSize: 17, fontWeight: 500 }}>
+                    {p.href ? (
+                      <a href={p.href} target="_blank" rel="noreferrer noopener" style={{ color: "#fff", textDecoration: "none" }}>{p.title}</a>
+                    ) : p.title}
+                  </td>
                   <td className="pf-cell-meta" style={{ padding: "14px 12px", fontSize: 13, color: "var(--muted)" }}>{p.venue}</td>
                   <td className="pf-meta pf-cell-meta" style={{ padding: "14px 12px", fontSize: 11, color: "var(--muted)", textAlign: "right" }}>{p.year}</td>
                   <td className="pf-tight pf-cell-meta" style={{ padding: "14px 12px", fontSize: 16, fontWeight: 600, textAlign: "right" }}>{p.cite} cites</td>

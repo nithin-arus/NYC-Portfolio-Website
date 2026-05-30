@@ -29,10 +29,38 @@ function ViewHome() {
         {/* Two-column body */}
         <div className="pf-2col" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", borderBottom: "1px solid var(--hairline)" }}>
           <div style={{ borderRight: "1px solid var(--hairline)", padding: 32, display: "flex", flexDirection: "column" }}>
-            <div className="pf-meta" style={{ fontSize: 10, color: "var(--muted)", marginBottom: 16 }}>
-              Fig. 01 — Schematic
+            <div className="pf-meta" style={{ fontSize: 10, color: "var(--muted)", marginBottom: 16, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <span>Fig. 01 — Recent Passport Stamps</span>
+              <span style={{ color: "var(--muted-2)" }}>Last 5</span>
             </div>
-            <PfImageSlot label="[ Portrait / Schematic — drop image here ]" height={300} />
+            <div style={{ border: "1px solid var(--hairline)", background: "#070707" }}>
+              {[
+                { line: "R", country: "[Country One]",   when: "Fall 2025" },
+                { line: "O", country: "[Country Two]",   when: "Summer 2024" },
+                { line: "Y", country: "[Country Three]", when: "Spring 2024" },
+                { line: "G", country: "[Country Four]",  when: "Winter 2023" },
+                { line: "B", country: "[Country Five]",  when: "Summer 2023" },
+              ].map((c, i, a) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "auto 28px 1fr auto",
+                    gap: 14,
+                    alignItems: "center",
+                    padding: "14px 16px",
+                    borderBottom: i === a.length - 1 ? 0 : "1px solid var(--hairline)",
+                  }}
+                >
+                  <span className="pf-meta" style={{ fontSize: 10, color: "var(--muted-2)", width: 22 }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <PfBullet label={c.country.charAt(1).toUpperCase()} line={c.line} size={22} />
+                  <span className="pf-tight" style={{ fontSize: 18, fontWeight: 500 }}>{c.country}</span>
+                  <span className="pf-meta" style={{ fontSize: 11, color: "var(--muted)" }}>{c.when}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div style={{ padding: 32, display: "flex", flexDirection: "column", gap: 16 }}>
             <div className="pf-meta" style={{ fontSize: 10, color: "var(--muted)" }}>About</div>

@@ -32,7 +32,7 @@ function PfSidebar({ tab, setTab, tabs, open }) {
           <span style={{ color: "var(--muted)" }}>Aruswamy</span>
         </div>
         <div className="pf-meta" style={{ fontSize: 10, color: "var(--muted-2)", marginTop: 10 }}>
-          Last Serviced on 5/27/2026
+          Last Serviced on {new Date().toLocaleDateString("en-US")}
         </div>
       </div>
 
@@ -87,7 +87,7 @@ function PfSidebar({ tab, setTab, tabs, open }) {
         }}
         className="pf-meta"
       >
-        <span style={{ fontSize: 9, color: "var(--muted-2)" }}>40.7128°N / 74.0060°W</span>
+        <span style={{ fontSize: 9, color: "var(--muted-2)" }}>37.7022°N / 121.9358°W</span>
         <span style={{ fontSize: 9, color: "var(--muted-2)" }}>V1.0</span>
       </div>
     </aside>

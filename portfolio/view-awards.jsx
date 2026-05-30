@@ -2,13 +2,17 @@
 
 function ViewAwards() {
   const rows = [
-    { line: "Y", title: "[Award / Honor Name]",       org: "[Organization]",      year: "20XX", status: "Active" },
-    { line: "B", title: "[Award / Honor Name]",       org: "[Organization]",      year: "20XX", status: "Active" },
-    { line: "G", title: "[Fellowship / Grant]",       org: "[Foundation]",        year: "20XX", status: "Active" },
-    { line: "R", title: "[Society Recognition]",      org: "[Society]",           year: "20XX", status: "Archived" },
-    { line: "O", title: "[Citation / Listing]",       org: "[Publication]",       year: "20XX", status: "Active" },
-    { line: "P", title: "[Award / Honor Name]",       org: "[Organization]",      year: "20XX", status: "Archived" },
-    { line: "Y", title: "[Award / Honor Name]",       org: "[Organization]",      year: "20XX", status: "Archived" },
+    { line: "Y", title: "1st Place Pitch",               org: "Berkeley MET.ia",     year: "2024", status: "Active" },
+    { line: "G", title: "Top 10 Global Skills",          org: "VEX Robotics",        year: "2024", status: "Active" },
+    { line: "B", title: "VEX Worlds Quarterfinalist",    org: "VEX Robotics",        year: "2023", status: "Active" },
+    { line: "R", title: "State Seal of Biliteracy",      org: "Government of CA",    year: "2026", status: "Active" },
+    { line: "O", title: "2nd Place Pitch",               org: "NFTE WSI",            year: "2025", status: "Active" },
+    { line: "P", title: "Top 100 Pitch",                 org: "Blue Ocean",          year: "2025", status: "Active" },
+    { line: "Y", title: "Finalist",                      org: "Conrad Challenge",    year: "2025", status: "Active" },
+    { line: "G", title: "Finalist",                      org: "Genius Olympiad",     year: "2025", status: "Active" },
+    { line: "B", title: "Finalist",                      org: "Paradigm Challenge",  year: "2025", status: "Active" },
+    { line: "R", title: "2nd Place · Design Hackathon",  org: "CapCut",              year: "2026", status: "Active" },
+    { line: "O", title: "1st Place · Hackathon",         org: "Apify",               year: "2026", status: "Active" },
   ];
 
   return (
@@ -43,7 +47,7 @@ function ViewAwards() {
             {rows.map((r, i) => (
               <tr key={i} style={{ borderBottom: "1px solid var(--hairline)" }}>
                 <td className="pf-cell-bullet" style={{ padding: "16px 12px 16px 40px", width: 80 }}>
-                  <PfBullet label={r.line} line={r.line} size={24} />
+                  <PfBullet label={r.title.charAt(0)} line={r.line} size={24} />
                 </td>
                 <td className="pf-tight pf-cell-title" style={{ padding: "16px 12px", fontSize: 19, fontWeight: 500 }}>
                   {r.title}

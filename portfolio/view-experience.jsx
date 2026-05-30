@@ -3,12 +3,12 @@
 
 function ViewExperience() {
   const stops = [
-    { current: true,  role: "[Current Role]",    co: "[Company]",        dates: "20XX — Present", loc: "[City]",  desc: "[One-line description of what you do and what you ship.]" },
-    { role: "[Previous Role]",   co: "[Company]",       dates: "20XX — 20XX",    loc: "[City]",  desc: "[What you built, scope, and outcome.]" },
-    { role: "[Role]",            co: "[Company]",       dates: "20XX — 20XX",    loc: "[City]",  desc: "[Brief description.]" },
-    { role: "[Role]",            co: "[Company]",       dates: "20XX — 20XX",    loc: "[City]",  desc: "[Brief description.]" },
-    { role: "[Internship]",      co: "[Company]",       dates: "20XX",           loc: "[City]",  desc: "[What you learned.]" },
-    { terminus: true, role: "Origin",            co: "[School / First Job]", dates: "20XX",     loc: "[City]",  desc: "[Education or first stop.]" },
+    { current: true,  role: "Teacher Assistant",         co: "UC Berkeley Haas · B-BAY",   dates: "Sep 2025 — Present",  loc: "Berkeley, CA",  desc: "Guiding student founders to launch scalable ventures at Berkeley Business Academy for Youth.", href: "https://haas.berkeley.edu/business-academy/careers/instructors/", linkColor: "#fccc0a" },
+    { role: "Founder",                                   co: "OneDay",                      dates: "Aug 2025 — Dec 2025", loc: "Onsite",        desc: "Built full-stack productivity iOS app with 5,000+ users across 30 countries.", href: "https://apps.apple.com/us/app/oneday-by-nithin-aruswamy/id6755661127", linkColor: "#00933c" },
+    { role: "Machine Learning Researcher",               co: "UC Irvine · EECS Lab",        dates: "Aug 2025 — Dec 2025", loc: "Irvine, CA",    desc: "Created novel AI pipeline with computer vision for fabric categorization and wear prediction.", href: "https://www.xia-lab.com/team", linkColor: "#b933ad" },
+    { role: "Product Engineer",                          co: "Gamr (Techstars '23)",        dates: "Jul 2024 — Feb 2026", loc: "Onsite",        desc: "Built AMA, an AI-powered career guide for gamers at Africa's #1 gaming platform.", href: "https://www.gamr.africa/vision", linkColor: "#0039a6" },
+    { role: "Robotics Instructor",                       co: "Robolabs",                    dates: "Jun 2023 — Nov 2025", loc: "Bay Area, CA",  desc: "Mentored 10+ middle school teams to global success and managed logistics for the global VEX event at UC Berkeley.", href: "https://www.robolabs.org/", linkColor: "#ee352e" },
+    { role: "Author",                                    co: "Jet-Set Teen",                dates: "Jun 2021 — Sep 2024", loc: "Onsite",        desc: "Explored 50+ countries and published Amazon #1 New Release (Travel Guide).", href: "https://www.amazon.com/Jet-Set-Teen-International-Travels-Budgeting/dp/B0DF6VKC18", linkColor: "#ff6319" },
   ];
 
   return (
@@ -76,6 +76,7 @@ function ViewExperience() {
                 gridTemplateColumns: "1fr auto",
                 gap: 16,
                 alignItems: "start",
+                position: "relative",
               }}>
                 <div>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
@@ -107,6 +108,48 @@ function ViewExperience() {
                     {s.loc}
                   </span>
                 </div>
+                {s.href && (
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={`Open link for ${s.role}`}
+                    className="pf-exp-link"
+                    style={{
+                      position: "absolute",
+                      right: 14,
+                      bottom: 14,
+                      width: 32,
+                      height: 32,
+                      borderRadius: 999,
+                      background: s.linkColor || "#fff",
+                      color: PF_LINES[Object.keys(PF_LINES).find(k => PF_LINES[k].color === s.linkColor)]?.fg || "#000",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      textDecoration: "none",
+                      fontSize: 16,
+                      fontWeight: 700,
+                      lineHeight: 1,
+                    }}
+                  >
+                    <svg
+                      className="pf-exp-arrow"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3.5"
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
+                      style={{ display: "block" }}
+                    >
+                      <line x1="6" y1="18" x2="18" y2="6" />
+                      <polyline points="8,6 18,6 18,16" />
+                    </svg>
+                  </a>
+                )}
               </div>
             </div>
           ))}

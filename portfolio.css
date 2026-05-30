@@ -98,3 +98,19 @@ button { font-family: inherit; }
 
 /* Travel blog button — nudge arrow on hover */
 .pf-travel:hover .pf-travel-arrow { transform: translateX(6px); }
+
+/* Experience card link circle — lift on hover */
+.pf-exp-link {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  will-change: transform;
+}
+.pf-exp-link:hover {
+  transform: translate(2px, -4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+}
+.pf-exp-arrow {
+  transition: transform 180ms ease;
+}
+.pf-exp-link:hover .pf-exp-arrow {
+  transform: translate(1px, -1px);
+}

@@ -22,7 +22,7 @@ function ViewHome() {
             className="pf-tight"
             style={{ fontSize: 26, color: "var(--muted)", marginTop: 20, fontWeight: 400, lineHeight: 1.3 }}
           >
-            [Your Title / Role] — Systems &amp; Design
+            Student at UC Berkeley
           </div>
         </div>
 
@@ -37,16 +37,16 @@ function ViewHome() {
           <div style={{ padding: 32, display: "flex", flexDirection: "column", gap: 16 }}>
             <div className="pf-meta" style={{ fontSize: 10, color: "var(--muted)" }}>About</div>
             <div className="pf-tight" style={{ fontSize: 24, lineHeight: 1.2, fontWeight: 500 }}>
-              [Short intro — one or two sentences about who you are and what you build.]
+              Hey, I'm Nithin 👋
             </div>
             <div style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.55 }}>
-              [Longer paragraph. The current copy is placeholder — replace with your bio,
-              philosophy, or a few sentences about your current focus and what you're
-              looking to work on next.]
+              I study Operations Research &amp; Math at UC Berkeley. I'm heavily invested in
+              automating agriculture technology and the smart wearable space. I currently work
+              as a teacher assistant at Berkeley Haas for UC Berkeley's Business Academy for Youth.
             </div>
             <div style={{ marginTop: "auto", paddingTop: 12 }}>
-              <PfStatPair k="Now Operating" v="[Current role / Co.]" />
-              <PfStatPair k="Based" v="[City, Region]" />
+              <PfStatPair k="Now Operating" v="Student" />
+              <PfStatPair k="Based" v="SF, California" />
               <PfStatPair k="In Service Since" v="[Year]" />
             </div>
           </div>
@@ -64,9 +64,39 @@ function ViewHome() {
             </div>
           </div>
           {[
-            { line: "G", time: "Now",  dest: "[Current Project A]",      st: "Live",     stc: "#00933c" },
-            { line: "G", time: "Now",  dest: "[Current Project B]",      st: "Live",     stc: "#00933c" },
-            { line: "Y", time: "Q2",   dest: "[Upcoming Work]",          st: "Planned",  stc: "#fccc0a" },
+            {
+              line: "G", time: "Now", st: "Live", stc: "#00933c",
+              dest: (
+                <>
+                  Building World's 1st Mass-Market{" "}
+                  <a
+                    href="https://www.therapeuo.xyz"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    style={{ color: "#9aa0a6", textDecoration: "none" }}
+                  >
+                    Smart Insole
+                  </a>
+                </>
+              ),
+            },
+            {
+              line: "G", time: "Now", st: "Live", stc: "#00933c",
+              dest: (
+                <>
+                  Designed a Minimalist{" "}
+                  <a
+                    href="https://apps.apple.com/us/app/oneday-by-nithin-aruswamy/id6755661127"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    style={{ color: "#9aa0a6", textDecoration: "none" }}
+                  >
+                    Productivity App
+                  </a>
+                </>
+              ),
+            },
+            { line: "Y", time: "Q3",   dest: "IEOR Research",            st: "Planned",  stc: "#fccc0a" },
             { line: "B", time: "—",    dest: "[Open to opportunities]",  st: "Standby",  stc: "#a7a9ac" },
           ].map((d, i, a) => (
             <div key={i} className="pf-departure-row"

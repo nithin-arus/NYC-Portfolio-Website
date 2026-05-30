@@ -2,20 +2,20 @@
 
 function ViewInterests() {
   const skillGroups = [
-    { line: "B", title: "Engineering",  items: ["[Skill]", "[Skill]", "[Skill]", "[Skill]", "[Skill]", "[Skill]"] },
-    { line: "G", title: "Systems",      items: ["[Skill]", "[Skill]", "[Skill]", "[Skill]"] },
-    { line: "Y", title: "Design",       items: ["[Skill]", "[Skill]", "[Skill]"] },
-    { line: "O", title: "Tools",        items: ["[Tool]", "[Tool]", "[Tool]", "[Tool]", "[Tool]"] },
-    { line: "R", title: "Languages",    items: ["[Lang]", "[Lang]"] },
+    { line: "B", title: "Engineering",  items: ["iOS App Development", "Autonomous Systems", "Control Systems (PID)", "Stochastic Processes", "Robotics", "GPIO"] },
+    { line: "G", title: "Systems",      items: ["Embedded Systems", "Sensor Integration", "Bluetooth Low Energy (BLE)", "Hydroponic Systems"] },
+    { line: "Y", title: "Design",       items: ["UI/UX Design", "Hardware Prototyping", "Human-Centric Design"] },
+    { line: "O", title: "Tools",        items: ["Nvidia Jetson", "CAD", "Xcode", "Figma", "GitHub", "Claude Code"] },
+    { line: "R", title: "Languages",    items: ["Swift", "Java", "Python", "R", "C++"] },
   ];
 
   const interests = [
-    "[Interest 1]",
-    "[Interest 2]",
-    "[Interest 3]",
-    "[Interest 4]",
-    "[Interest 5]",
-    "[Interest 6]",
+    "Operations Research",
+    "Smart Wearable Tech",
+    "Autonomous Farming",
+    "Battery Cell Technology",
+    "Nuclear Energy",
+    "Global Travel",
   ];
 
   return (
@@ -28,7 +28,7 @@ function ViewInterests() {
             Interests<span style={{ color: "var(--muted-2)" }}> &amp; </span>Skills
           </div>
           <div style={{ fontSize: 14, color: "var(--muted)", marginTop: 8, maxWidth: 620 }}>
-            [Short intro line about your areas of focus and what you nerd out on.]
+            Areas I work in and topics I nerd out on — from PID loops to power-grid policy.
           </div>
         </div>
 

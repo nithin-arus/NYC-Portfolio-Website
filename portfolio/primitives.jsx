@@ -188,6 +188,8 @@ function PfStatusLights() {
 
 // Generic top board header used on every view
 function PfBoardHeader({ stationCode, name, platform }) {
+  const now = useLiveClock();
+  const dayLabel = now.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }).replace(",", " ·");
   return (
     <div
       className="pf-board-header"
@@ -218,7 +220,7 @@ function PfBoardHeader({ stationCode, name, platform }) {
       <div className="pf-board-header-right" style={{ display: "flex", alignItems: "center", gap: 14 }}>
         <PfClock style={{ color: "#fff" }} />
         <span style={{ width: 1, height: 14, background: "var(--hairline)" }} />
-        <span className="pf-meta" style={{ fontSize: 10, color: "var(--muted)" }}>Wed · May 27</span>
+        <span className="pf-meta" style={{ fontSize: 10, color: "var(--muted)" }}>{dayLabel}</span>
       </div>
     </div>
   );

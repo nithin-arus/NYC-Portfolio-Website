@@ -42,7 +42,7 @@ function ViewMedia() {
       <PfBoardHeader stationCode="N06" name="Favorite Media" />
 
       <div className="pf-scroll" style={{ flex: 1 }}>
-        <div style={{ padding: "32px 40px 24px", borderBottom: "1px solid var(--hairline)", display: "grid", gridTemplateColumns: "1fr auto", alignItems: "end" }}>
+        <div className="pf-view-pad" style={{ padding: "32px 40px 24px", borderBottom: "1px solid var(--hairline)", display: "grid", gridTemplateColumns: "1fr auto", alignItems: "end" }}>
           <div className="pf-tighter pf-display-xl" style={{ fontSize: 84, fontWeight: 500, lineHeight: 1.02 }}>
             Library
           </div>
@@ -98,7 +98,7 @@ function ViewMedia() {
           ))}
         </div>
 
-        <div style={{ padding: "20px 40px", borderTop: "1px solid var(--hairline)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="pf-view-pad pf-media-footer" style={{ padding: "20px 40px", borderTop: "1px solid var(--hairline)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <span className="pf-meta" style={{ fontSize: 10, color: "var(--muted)" }}>
             Library is non-exhaustive · Last revised May 2026
           </span>

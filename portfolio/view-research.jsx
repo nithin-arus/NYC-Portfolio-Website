@@ -29,8 +29,8 @@ function ViewResearch() {
       <PfBoardHeader stationCode="N03" name="Research &amp; Patents" />
 
       <div className="pf-scroll" style={{ flex: 1 }}>
-        <div style={{ padding: "32px 40px 24px", borderBottom: "1px solid var(--hairline)" }}>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
+        <div className="pf-view-pad" style={{ padding: "32px 40px 24px", borderBottom: "1px solid var(--hairline)" }}>
+          <div className="pf-title-row" style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
             <div className="pf-tighter pf-display-xl" style={{ fontSize: 84, fontWeight: 500, lineHeight: 1.02 }}>
               Research<span style={{ color: "var(--muted-2)" }}> &amp; </span>Patents
             </div>
@@ -42,7 +42,7 @@ function ViewResearch() {
 
         {/* Projects section */}
         <div style={{ borderBottom: "1px solid var(--hairline)" }}>
-          <div style={{
+          <div className="pf-section-head" style={{
             display: "flex", alignItems: "center", gap: 12,
             padding: "16px 40px", borderBottom: "1px solid var(--hairline)",
           }}>
@@ -90,7 +90,7 @@ function ViewResearch() {
 
         {/* Papers section */}
         <div style={{ borderBottom: "1px solid var(--hairline)" }}>
-          <div style={{
+          <div className="pf-section-head" style={{
             display: "flex", alignItems: "center", gap: 12,
             padding: "16px 40px", borderBottom: "1px solid var(--hairline)",
           }}>
@@ -140,7 +140,7 @@ function ViewResearch() {
 
         {/* Patents section */}
         <div>
-          <div style={{
+          <div className="pf-section-head" style={{
             display: "flex", alignItems: "center", gap: 12,
             padding: "16px 40px", borderBottom: "1px solid var(--hairline)",
           }}>
@@ -160,7 +160,7 @@ function ViewResearch() {
               borderBottom: i === a.length - 1 ? 0 : "1px solid var(--hairline)",
             }}>
               <span className="pf-meta pf-row-id" style={{ fontSize: 11, color: "var(--muted)", width: 110 }}>{p.id}</span>
-              <span className="pf-tight pf-row-title" style={{ fontSize: 18, fontWeight: 500 }} dangerouslySetInnerHTML={{ __html: p.title }} />
+              <span className="pf-tight pf-row-title" style={{ fontSize: 18, fontWeight: 500 }}>{p.title}</span>
               <span className="pf-meta pf-row-meta" style={{ fontSize: 11, color: "var(--muted)" }}>{p.year}</span>
               <span className="pf-meta pf-row-status" style={{ fontSize: 10, color: p.status === "Pending" ? "#fccc0a" : "#00933c", display: "inline-flex", alignItems: "center", gap: 6 }}>
                 <PfDot color={p.status === "Pending" ? "#fccc0a" : "#00933c"} className="pf-blink-slow" />

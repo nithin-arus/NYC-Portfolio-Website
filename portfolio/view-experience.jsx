@@ -15,9 +15,9 @@ function ViewExperience() {
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <PfBoardHeader stationCode="N02" name="Experience" />
 
-      <div className="pf-scroll" style={{ flex: 1, padding: "32px 40px 40px" }}>
+      <div className="pf-scroll pf-view-pad" style={{ flex: 1, padding: "32px 40px 40px" }}>
         {/* Title */}
-        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 28 }}>
+        <div className="pf-title-row" style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 28 }}>
           <div className="pf-tighter pf-display-xl" style={{ fontSize: 84, fontWeight: 500, lineHeight: 1.02 }}>
             Experience
           </div>
@@ -28,12 +28,13 @@ function ViewExperience() {
         </div>
 
         {/* Route */}
-        <div style={{ position: "relative", paddingLeft: 56 }}>
+        <div className="pf-experience-route" style={{ position: "relative", paddingLeft: 56 }}>
           {stops.map((s, i) => (
-            <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr", paddingBottom: i === stops.length - 1 ? 0 : 28, position: "relative" }}>
+            <div key={i} className="pf-exp-stop" style={{ display: "grid", gridTemplateColumns: "1fr", paddingBottom: i === stops.length - 1 ? 0 : 28, position: "relative" }}>
               {/* Connector segment from this dot down to the next (omit on last stop) */}
               {i < stops.length - 1 && (
                 <div
+                  className="pf-exp-connector"
                   style={{
                     position: "absolute",
                     left: -42,        /* dot center (-56 + 18) - half of line width (4) */
@@ -47,6 +48,7 @@ function ViewExperience() {
 
               {/* Stop disc */}
               <div
+                className="pf-exp-disc"
                 style={{
                   position: "absolute",
                   left: -56,
@@ -68,7 +70,7 @@ function ViewExperience() {
               </div>
 
               {/* Content */}
-              <div style={{
+              <div className="pf-exp-card" style={{
                 border: "1px solid var(--hairline)",
                 background: s.current ? "#0c0c0c" : "transparent",
                 padding: "16px 20px",
@@ -97,7 +99,7 @@ function ViewExperience() {
                     {s.desc}
                   </div>
                 </div>
-                <div style={{ textAlign: "right", display: "flex", flexDirection: "column", gap: 6 }}>
+                <div className="pf-exp-meta" style={{ textAlign: "right", display: "flex", flexDirection: "column", gap: 6 }}>
                   <span className="pf-meta" style={{ fontSize: 11, color: "#fff", fontWeight: 600 }}>
                     {s.dates}
                   </span>

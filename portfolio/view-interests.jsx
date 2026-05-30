@@ -23,7 +23,7 @@ function ViewInterests() {
       <PfBoardHeader stationCode="N05" name="Interests &amp; Skills" />
 
       <div className="pf-scroll" style={{ flex: 1 }}>
-        <div style={{ padding: "32px 40px 24px", borderBottom: "1px solid var(--hairline)" }}>
+        <div className="pf-view-pad" style={{ padding: "32px 40px 24px", borderBottom: "1px solid var(--hairline)" }}>
           <div className="pf-tighter pf-display-xl" style={{ fontSize: 84, fontWeight: 500, lineHeight: 1.02 }}>
             Interests<span style={{ color: "var(--muted-2)" }}> &amp; </span>Skills
           </div>
@@ -33,7 +33,7 @@ function ViewInterests() {
         </div>
 
         {/* Skills grid */}
-        <div style={{ padding: "28px 40px", borderBottom: "1px solid var(--hairline)" }}>
+        <div className="pf-view-pad" style={{ padding: "28px 40px", borderBottom: "1px solid var(--hairline)" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 18 }}>
             <PfDot color="#0039a6" className="pf-blink-pulse" />
             <div className="pf-tight" style={{ fontSize: 22, fontWeight: 700 }}>Skills</div>
@@ -71,7 +71,7 @@ function ViewInterests() {
         </div>
 
         {/* Interests */}
-        <div style={{ padding: "28px 40px" }}>
+        <div className="pf-view-pad" style={{ padding: "28px 40px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 18 }}>
             <PfDot color="#b933ad" className="pf-blink-pulse" />
             <div className="pf-tight" style={{ fontSize: 22, fontWeight: 700 }}>Interests</div>

@@ -7,7 +7,7 @@ function ViewHome() {
 
       <div className="pf-scroll" style={{ flex: 1 }}>
         {/* Marquee headline */}
-        <div style={{ padding: "44px 40px 28px", borderBottom: "1px solid var(--hairline)" }}>
+        <div className="pf-view-pad pf-home-marquee" style={{ padding: "44px 40px 28px", borderBottom: "1px solid var(--hairline)" }}>
           <div className="pf-meta" style={{ fontSize: 11, color: "var(--muted)", marginBottom: 18, display: "flex", alignItems: "center", gap: 8 }}>
             <PfDot color="#fccc0a" className="pf-blink" />
             Now Arriving · Platform 1
@@ -28,7 +28,7 @@ function ViewHome() {
 
         {/* Two-column body */}
         <div className="pf-2col" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", borderBottom: "1px solid var(--hairline)" }}>
-          <div style={{ borderRight: "1px solid var(--hairline)", padding: 32, display: "flex", flexDirection: "column" }}>
+          <div className="pf-view-pad" style={{ borderRight: "1px solid var(--hairline)", padding: 32, display: "flex", flexDirection: "column" }}>
             <div className="pf-meta" style={{ fontSize: 10, color: "var(--muted)", marginBottom: 16, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <span>Fig. 01 — Recent Stamps</span>
               <span style={{ color: "var(--muted-2)" }}>Total Visited · 53</span>
@@ -62,7 +62,7 @@ function ViewHome() {
               ))}
             </div>
           </div>
-          <div style={{ padding: 32, display: "flex", flexDirection: "column", gap: 16 }}>
+          <div className="pf-view-pad" style={{ padding: 32, display: "flex", flexDirection: "column", gap: 16 }}>
             <div className="pf-meta" style={{ fontSize: 10, color: "var(--muted)" }}>About</div>
             <div className="pf-tight" style={{ fontSize: 24, lineHeight: 1.2, fontWeight: 500 }}>
               Hey, I'm Nithin 👋
@@ -81,7 +81,7 @@ function ViewHome() {
         </div>
 
         {/* Departure board feel — current focuses */}
-        <div style={{ padding: 32 }}>
+        <div className="pf-view-pad" style={{ padding: 32 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 18 }}>
             <PfDot color="#00933c" className="pf-blink-pulse" />
             <div className="pf-tight" style={{ fontSize: 22, fontWeight: 700 }}>

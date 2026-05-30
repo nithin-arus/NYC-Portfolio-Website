@@ -133,16 +133,68 @@
   }
   .pf-footer > * { justify-self: start !important; font-size: 9px !important; }
 
-  /* Experience route — narrower indent */
-  .pf-experience-route { padding-left: 44px !important; }
-  .pf-experience-stop {
-    grid-template-columns: 1fr !important;
+  /* Experience route — narrower indent on mobile */
+  .pf-experience-route { padding-left: 40px !important; }
+  .pf-exp-disc {
+    left: -40px !important;
+    top: 4px !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-width: 4px !important;
   }
-  .pf-experience-meta {
+  .pf-exp-connector {
+    left: -29px !important;
+    top: 32px !important;
+    width: 6px !important;
+  }
+  .pf-exp-card {
+    grid-template-columns: 1fr !important;
+    padding: 14px 16px 52px !important;
+    gap: 8px !important;
+  }
+  .pf-exp-card > div:first-child > div:first-child { gap: 6px !important; }
+  .pf-exp-meta {
     text-align: left !important;
     flex-direction: row !important;
     gap: 12px !important;
-    margin-top: 8px;
+    align-items: baseline !important;
+    flex-wrap: wrap !important;
+  }
+  .pf-exp-link {
+    width: 28px !important;
+    height: 28px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+  .pf-exp-link svg { width: 14px !important; height: 14px !important; }
+
+  /* Title row — stack big title above meta */
+  .pf-title-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  .pf-title-row .pf-meta { text-align: left !important; padding-bottom: 0 !important; }
+
+  /* Sidebar identity — clamp big title */
+  .pf-sidebar .pf-tighter { font-size: clamp(28px, 9vw, 38px) !important; }
+
+  /* Home departure rows — allow long dest to wrap nicely */
+  .pf-departure-row .pf-tight { font-size: 16px !important; line-height: 1.25 !important; word-break: normal !important; }
+  .pf-departure-row { padding: 14px 0 !important; }
+
+  /* Section heads — tighter padding */
+  .pf-section-head {
+    padding: 14px 16px !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  /* Media library footer — stack */
+  .pf-media-footer {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
   }
 
   /* Generic 5-col row-grid (Projects / Patents) — wraps on mobile */

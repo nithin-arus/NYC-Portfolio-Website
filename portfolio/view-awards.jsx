@@ -20,7 +20,7 @@ function ViewAwards() {
       <PfBoardHeader stationCode="N04" name="Awards &amp; Honors" />
 
       <div className="pf-scroll" style={{ flex: 1 }}>
-        <div style={{ padding: "32px 40px 24px", display: "grid", gridTemplateColumns: "1fr auto", alignItems: "end", borderBottom: "1px solid var(--hairline)" }}>
+        <div className="pf-view-pad" style={{ padding: "32px 40px 24px", display: "grid", gridTemplateColumns: "1fr auto", alignItems: "end", borderBottom: "1px solid var(--hairline)" }}>
           <div className="pf-tighter pf-display-xl" style={{ fontSize: 84, fontWeight: 500, lineHeight: 1.02 }}>
             Awards
           </div>

@@ -47,7 +47,8 @@ function PfSidebar({ tab, setTab, tabs, open }) {
       <button
         type="button"
         className="pf-travel"
-        onClick={() => {}}
+        disabled
+        aria-disabled="true"
         style={{
           display: "grid",
           gridTemplateColumns: "auto 1fr auto",
@@ -60,7 +61,7 @@ function PfSidebar({ tab, setTab, tabs, open }) {
           border: 0,
           borderTop: "1px solid var(--hairline-strong)",
           textAlign: "left",
-          cursor: "pointer",
+          cursor: "not-allowed",
           width: "100%",
           font: "inherit",
         }}

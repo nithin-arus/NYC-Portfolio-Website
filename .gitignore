@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+.thumbnail
+._*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local dev
+node_modules/
+dist/
+build/
+
+# Media — large files not for git
+*.MOV
+*.mov
+*.mp4
+*.mkv
+
+# Misc
+.env
+.env.local

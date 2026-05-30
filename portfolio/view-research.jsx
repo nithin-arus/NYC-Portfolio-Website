@@ -125,7 +125,7 @@ function ViewResearch() {
                   </td>
                   <td className="pf-cell-meta" style={{ padding: "14px 12px", fontSize: 13, color: "var(--muted)" }}>{p.venue}</td>
                   <td className="pf-meta pf-cell-meta" style={{ padding: "14px 12px", fontSize: 11, color: "var(--muted)", textAlign: "right" }}>{p.year}</td>
-                  <td className="pf-tight pf-cell-meta" style={{ padding: "14px 12px", fontSize: 16, fontWeight: 600, textAlign: "right" }}>{p.cite} cites</td>
+                  <td className="pf-tight pf-cell-meta" style={{ padding: "14px 12px", fontSize: 16, fontWeight: 600, textAlign: "right" }}>{p.cite}</td>
                   <td className="pf-meta pf-cell-status" style={{ padding: "14px 40px 14px 12px", fontSize: 10, textAlign: "right" }}>
                     <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: p.status === "Preprint" ? "#fccc0a" : "#00933c" }}>
                       <PfDot color={p.status === "Preprint" ? "#fccc0a" : "#00933c"} className="pf-blink-slow" />

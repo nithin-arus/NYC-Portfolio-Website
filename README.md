@@ -13,11 +13,11 @@ My personal portfolio, built to look like a New York City subway station board. 
 
 ## About the design
 
-The whole site is a love letter to **Massimo Vignelli** and his 1972 NYC Subway map. I kept staring at the old map and the Unimark platform signs and wanted my portfolio to *feel* like one — not just borrow the colors.
+The whole site is a tribute to **Massimo Vignelli** and his 1972 NYC Subway map. I kept staring at the old map, the subways signs in and around NYC and wanted my portfolio to *feel* like one, not just borrowing the colors.
 
 So the layout is a station board. The sidebar is a platform sign with route listings. Each section gets a colored route bullet and a number (01–06). There's a live clock, blinking status lights, and a "Last Serviced" date so the board feels alive. My contact links are the signal lights up top.
 
-How I landed here: I started with a plain dark portfolio and it felt like every other one. The subway idea came from wanting a system, not a theme — a real design language with rules I could follow. Vignelli's work already had those rules, so I borrowed them instead of inventing my own.
+How I landed here: I started with a plain dark portfolio and it felt like every other one. The subway idea came from wanting a system, a real design language with rules I could follow. Vignelli's work already had those rules, so I innovated on them instead of inventing my own.
 
 **The rules I follow:**
 
@@ -56,7 +56,7 @@ Static site, no build step. Plain HTML and CSS plus React 18 loaded from a CDN a
 | 05 | Interests & Skills | 🟣 |
 | 06 | Favorite Media | 🟠 |
 
-*Travel Blog is the yellow button at the bottom — under construction.*
+*Travel Blog is the yellow button at the bottom — which is under construction.* Currently working on an interactive world map sites, inspired by global, vintage stamps.
 
 ---
 
@@ -66,4 +66,4 @@ Reach me through the signal lights at the top of the site — email, LinkedIn, G
 
 ---
 
-<sub>Design credit: Massimo Vignelli & Unimark International, 1972.</sub>
+<sub>Design credit: Massimo Vignelli 1972.</sub>
